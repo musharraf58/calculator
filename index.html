@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+    <div class="calculator-container">
+        <h1>Calculator</h1>
+        <!-- Add this after <h1>Calculator</h1> -->
+<div class="theme-toggle-container">
+    <button id="themeToggle" class="btn btn-theme" aria-label="Toggle dark mode">
+        🌙 Dark Mode
+    </button>
+</div>
+        
+        <!-- Display with ARIA live region -->
+        <div class="display-container">
+            <div id="display" class="display" aria-live="polite" aria-atomic="true">0</div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-container">
+            <h2>History</h2>
+            <div id="history" class="history-list"></div>
+        </div>
+        <!-- In your history-container div, update it to this: -->
+<div class="history-container">
+    <div class="history-header">
+        <button class="btn btn-clear-history" data-action="clearHistory" aria-label="Clear history">
+            🗑️ Clear
+        </button>
+    </div>
+    <div id="history" class="history-list"></div>
+</div>
+
+        <!-- Calculator Buttons -->
+        <div class="buttons-grid">
+            <!-- Row 1 -->
+            <!-- Replace the first row of buttons with this -->
+<!-- Row 1 -->
+<button class="btn btn-function" data-action="allClear" aria-label="All Clear">AC</button>
+<button class="btn btn-function" data-action="clear" aria-label="Clear">C</button>
+<button class="btn btn-function" data-action="backspace" aria-label="Backspace">⌫</button>
+<button class="btn btn-function" data-action="toggleSign" aria-label="Toggle positive/negative">±</button>
+<button class="btn btn-function" data-action="percent" aria-label="Percent">%</button>
+<button class="btn btn-operator" data-operator="÷" aria-label="Divide">÷</button>
+            
+            <!-- Row 2 -->
+            <button class="btn btn-number" data-number="7">7</button>
+            <button class="btn btn-number" data-number="8">8</button>
+            <button class="btn btn-number" data-number="9">9</button>
+            <button class="btn btn-operator" data-operator="×" aria-label="Multiply">×</button>
+            
+            <!-- Row 3 -->
+            <button class="btn btn-number" data-number="4">4</button>
+            <button class="btn btn-number" data-number="5">5</button>
+            <button class="btn btn-number" data-number="6">6</button>
+            <button class="btn btn-operator" data-operator="-" aria-label="Subtract">-</button>
+            
+            <!-- Row 4 -->
+            <button class="btn btn-number" data-number="1">1</button>
+            <button class="btn btn-number" data-number="2">2</button>
+            <button class="btn btn-number" data-number="3">3</button>
+            <button class="btn btn-operator" data-operator="+" aria-label="Add">+</button>
+            
+            <!-- Row 5 -->
+            <button class="btn btn-number btn-zero" data-number="0">0</button>
+            <button class="btn btn-number" data-number="." aria-label="Decimal point">.</button>
+            <button class="btn btn-equals" data-action="equals" aria-label="Equals">=</button>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

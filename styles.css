@@ -1,0 +1,360 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.display-container {
+    margin-bottom: 20px;
+}
+
+.display {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: right;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    word-break: break-all;
+}
+
+.history-container {
+    margin-bottom: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-container h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.history-list {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.history-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+}
+
+.btn-number {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.btn-number:hover {
+    background: #e9ecef;
+}
+
+.btn-operator {
+    background: #007bff;
+    color: white;
+}
+
+.btn-operator:hover {
+    background: #0056b3;
+}
+
+.btn-equals {
+    background: #28a745;
+    color: white;
+}
+
+.btn-equals:hover {
+    background: #1e7e34;
+}
+
+.btn-function {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-function:hover {
+    background: #545b62;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 20px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .display {
+        font-size: 1.5rem;
+        min-height: 60px;
+    }
+}
+
+/* Add these to your existing CSS */
+
+.theme-toggle-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.btn-theme {
+    background: #6c757d;
+    color: white;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-color: #4dabf7;
+}
+
+/* Light theme variables (default) */
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #007bff;
+}
+
+/* Apply theme variables */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-primary);
+}
+
+.calculator-container {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.display {
+    background: var(--bg-secondary);
+    border-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.btn-number {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.btn-number:hover {
+    background: var(--bg-tertiary);
+}
+
+.history-container {
+    color: var(--text-secondary);
+}
+
+.history-item {
+    border-bottom-color: var(--bg-tertiary);
+}
+
+/* Keep operator colors consistent in both themes */
+.btn-operator, .btn-equals, .btn-function, .btn-theme {
+    filter: brightness(1.1);
+}
+/* Update buttons grid for 6 columns in first row */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* First row has 2 extra buttons, so we need 6 columns just for first row */
+.buttons-grid :nth-child(-n+6) {
+    grid-column: span 2;
+}
+
+/* Make the first 6 buttons (first row) smaller to fit */
+.buttons-grid :nth-child(-n+6) {
+    padding: 12px 8px;
+    font-size: 1rem;
+}
+
+/* Regular buttons */
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+}
+
+.btn-number {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.btn-number:hover {
+    background: #e9ecef;
+}
+
+.btn-operator {
+    background: #007bff;
+    color: white;
+}
+
+.btn-operator:hover {
+    background: #0056b3;
+}
+
+.btn-equals {
+    background: #28a745;
+    color: white;
+}
+
+.btn-equals:hover {
+    background: #1e7e34;
+}
+
+.btn-function {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-function:hover {
+    background: #545b62;
+}
+
+/* Zero button spans 2 columns */
+.btn-zero {
+    grid-column: span 2;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .buttons-grid {
+        gap: 8px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .buttons-grid :nth-child(-n+6) {
+        padding: 10px 6px;
+        font-size: 0.9rem;
+    }
+    
+    .display {
+        font-size: 1.5rem;
+        min-height: 60px;
+    }
+}
+/* History header layout */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.history-header h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Clear history button */
+.btn-clear-history {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-clear-history:hover {
+    background: #c82333;
+}
+
+.btn-clear-history:focus {
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.5);
+    outline: none;
+}
+
+/* Style for when history is empty */
+.history-empty {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+}
